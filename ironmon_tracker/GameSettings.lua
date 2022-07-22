@@ -148,12 +148,20 @@ function GameSettings.setGameAsRuby(gameversion)
 		GameSettings.gBattleOutcome = 0x02024d26
 
 		GameSettings.gSaveBlock1 = 0x02025734
+		GameSettings.gSaveBlock1FlagsOffset = 0x1220
+		GameSettings.flagsTrainerOffset = 0x500
 		GameSettings.gameStatsOffset = 0x1540
 		GameSettings.badgeOffset = 0x1220 + 0x100 -- [SaveBlock1's flags offset] + [Badge flag offset: SYSTEM_FLAGS / 8]
 		GameSettings.bagPocket_Items_offset = 0x560
 		GameSettings.bagPocket_Berries_offset = 0x740
 		GameSettings.bagPocket_Items_Size = 20
 		GameSettings.bagPocket_Berries_Size = 46
+		--to figure out trainer used
+		--https://github.com/pret/pokeruby/blob/master/include/constants/opponents.h
+		--https://github.com/pret/pokeruby/blob/master/data/maps/Route102/scripts.inc
+		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 318) / 8] = 0x40 --calvin
+		}
 	elseif gameversion == 0x01400000 then
 		print("ROM Detected: Pokemon Ruby v1.1")
 
@@ -173,12 +181,20 @@ function GameSettings.setGameAsRuby(gameversion)
 		GameSettings.gBattleOutcome = 0x02024d26
 
 		GameSettings.gSaveBlock1 = 0x02025734
+		GameSettings.gSaveBlock1FlagsOffset = 0x1220
+		GameSettings.flagsTrainerOffset = 0x500
 		GameSettings.gameStatsOffset = 0x1540
 		GameSettings.badgeOffset = 0x1220 + 0x100 -- [SaveBlock1's flags offset] + [Badge flag offset: SYSTEM_FLAGS / 8]
 		GameSettings.bagPocket_Items_offset = 0x560
 		GameSettings.bagPocket_Berries_offset = 0x740
 		GameSettings.bagPocket_Items_Size = 20
 		GameSettings.bagPocket_Berries_Size = 46
+		--to figure out trainer used
+		--https://github.com/pret/pokeruby/blob/master/include/constants/opponents.h
+		--https://github.com/pret/pokeruby/blob/master/data/maps/Route102/scripts.inc
+		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 318) / 8] = 0x40 --calvin
+		}
 	elseif gameversion == 0x023F0000 then
 		print("ROM Detected: Pokemon Ruby v1.2")
 
@@ -198,12 +214,20 @@ function GameSettings.setGameAsRuby(gameversion)
 		GameSettings.gBattleOutcome = 0x02024d26
 
 		GameSettings.gSaveBlock1 = 0x02025734
+		GameSettings.gSaveBlock1FlagsOffset = 0x1220
+		GameSettings.flagsTrainerOffset = 0x500
 		GameSettings.gameStatsOffset = 0x1540
 		GameSettings.badgeOffset = 0x1220 + 0x100 -- [SaveBlock1's flags offset] + [Badge flag offset: SYSTEM_FLAGS / 8]
 		GameSettings.bagPocket_Items_offset = 0x560
 		GameSettings.bagPocket_Berries_offset = 0x740
 		GameSettings.bagPocket_Items_Size = 20
 		GameSettings.bagPocket_Berries_Size = 46
+		--to figure out trainer used
+		--https://github.com/pret/pokeruby/blob/master/include/constants/opponents.h
+		--https://github.com/pret/pokeruby/blob/master/data/maps/Route102/scripts.inc
+		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 318) / 8] = 0x40 --calvin
+		}
 	end
 end
 
@@ -228,12 +252,20 @@ function GameSettings.setGameAsSapphire(gameversion)
 		GameSettings.gBattleOutcome = 0x02024d26
 
 		GameSettings.gSaveBlock1 = 0x02025734
+		GameSettings.gSaveBlock1FlagsOffset = 0x1220
+		GameSettings.flagsTrainerOffset = 0x500
 		GameSettings.gameStatsOffset = 0x1540
 		GameSettings.badgeOffset = 0x1220 + 0x100 -- [SaveBlock1's flags offset] + [Badge flag offset: SYSTEM_FLAGS / 8]
 		GameSettings.bagPocket_Items_offset = 0x560
 		GameSettings.bagPocket_Berries_offset = 0x740
 		GameSettings.bagPocket_Items_Size = 20
 		GameSettings.bagPocket_Berries_Size = 46
+		--to figure out trainer used
+		--https://github.com/pret/pokeruby/blob/master/include/constants/opponents.h
+		--https://github.com/pret/pokeruby/blob/master/data/maps/Route102/scripts.inc
+		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 318) / 8] = 0x40 --calvin
+		}
 	elseif gameversion == 0x1540000 then
 		print("ROM Detected: Pokemon Sapphire v1.1")
 
@@ -253,12 +285,20 @@ function GameSettings.setGameAsSapphire(gameversion)
 		GameSettings.gBattleOutcome = 0x02024d26
 
 		GameSettings.gSaveBlock1 = 0x02025734
+		GameSettings.gSaveBlock1FlagsOffset = 0x1220
+		GameSettings.flagsTrainerOffset = 0x500
 		GameSettings.gameStatsOffset = 0x1540
 		GameSettings.badgeOffset = 0x1220 + 0x100 -- [SaveBlock1's flags offset] + [Badge flag offset: SYSTEM_FLAGS / 8]
 		GameSettings.bagPocket_Items_offset = 0x560
 		GameSettings.bagPocket_Berries_offset = 0x740
 		GameSettings.bagPocket_Items_Size = 20
 		GameSettings.bagPocket_Berries_Size = 46
+		--to figure out trainer used
+		--https://github.com/pret/pokeruby/blob/master/include/constants/opponents.h
+		--https://github.com/pret/pokeruby/blob/master/data/maps/Route102/scripts.inc
+		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 318) / 8] = 0x40 --calvin
+		}
 	elseif gameversion == 0x02530000 then
 		print("ROM Detected: Pokemon Sapphire v1.2")
 
@@ -278,12 +318,20 @@ function GameSettings.setGameAsSapphire(gameversion)
 		GameSettings.gBattleOutcome = 0x02024d26
 
 		GameSettings.gSaveBlock1 = 0x02025734
+		GameSettings.gSaveBlock1FlagsOffset = 0x1220
+		GameSettings.flagsTrainerOffset = 0x500
 		GameSettings.gameStatsOffset = 0x1540
 		GameSettings.badgeOffset = 0x1220 + 0x100 -- [SaveBlock1's flags offset] + [Badge flag offset: SYSTEM_FLAGS / 8]
 		GameSettings.bagPocket_Items_offset = 0x560
 		GameSettings.bagPocket_Berries_offset = 0x740
 		GameSettings.bagPocket_Items_Size = 20
 		GameSettings.bagPocket_Berries_Size = 46
+		--to figure out trainer used
+		--https://github.com/pret/pokeruby/blob/master/include/constants/opponents.h
+		--https://github.com/pret/pokeruby/blob/master/data/maps/Route102/scripts.inc
+		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 318) / 8] = 0x40 --calvin
+		}
 	end
 end
 
@@ -308,6 +356,8 @@ function GameSettings.setGameAsEmerald(gameversion)
 
 	GameSettings.gSaveBlock1 = 0x02025a00
 	GameSettings.gSaveBlock1ptr = 0x03005d8c
+	GameSettings.gSaveBlock1FlagsOffset = 0x1270
+	GameSettings.flagsTrainerOffset = 0x500
 	GameSettings.gSaveBlock2ptr = 0x03005d90
 	GameSettings.gameStatsOffset = 0x159C
 	GameSettings.EncryptionKeyOffset = 0xAC
@@ -316,6 +366,12 @@ function GameSettings.setGameAsEmerald(gameversion)
 	GameSettings.bagPocket_Berries_offset = 0x790
 	GameSettings.bagPocket_Items_Size = 30
 	GameSettings.bagPocket_Berries_Size = 46
+	--to figure out trainer used
+	--https://github.com/pret/pokeemerald/blob/master/include/constants/opponents.h
+	--https://github.com/pret/pokeemerald/blob/master/data/maps/Route102/scripts.inc
+	GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
+		[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 318) / 8] = 0x40 -- calvin
+	}
 
 	-- https://raw.githubusercontent.com/pret/pokeemerald/symbols/pokeemerald.sym
 	GameSettings.ABILITIES = {
@@ -383,9 +439,10 @@ function GameSettings.setGameAsFireRed(gameversion)
 		--https://github.com/pret/pokefirered/blob/master/include/constants/opponents.h
 		--https://github.com/pret/pokefirered/blob/master/data/maps/ViridianForest/scripts.inc
 		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
-			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 102)/8] = 0xC0,--RICK and DOUG
-			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 103)/8] = 0x1,-- SAMMY
-			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 531)/8] = 0x18 --ANTHONY and CHARLIE
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 102) / 8] = 0xC0,--RICK and DOUG
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 104) / 8] = 0x1,-- SAMMY
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 531) / 8] = 0x18, --ANTHONY and CHARLIE
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 329) / 8] = 0x0E  --route 22 rival all form
 		}
 
 		-- https://raw.githubusercontent.com/pret/pokefirered/symbols/pokefirered_rev1.sym
@@ -465,9 +522,10 @@ function GameSettings.setGameAsFireRed(gameversion)
 		--https://github.com/pret/pokefirered/blob/master/include/constants/opponents.h
 		--https://github.com/pret/pokefirered/blob/master/data/maps/ViridianForest/scripts.inc
 		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
-			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 102)/8] = 0xC0,--RICK and DOUG
-			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 103)/8] = 0x1,-- SAMMY
-			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 531)/8] = 0x18 --ANTHONY and CHARLIE
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 102) / 8] = 0xC0, --RICK and DOUG
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 104) / 8] = 0x01, -- SAMMY
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 531) / 8] = 0x18, --ANTHONY and CHARLIE
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 329) / 8] = 0x0E  --route 22 rival all form
 		}
 
 		-- https://raw.githubusercontent.com/pret/pokefirered/symbols/pokefirered.sym
@@ -537,9 +595,10 @@ function GameSettings.setGameAsLeafGreen(gameversion)
 		--https://github.com/pret/pokefirered/blob/master/include/constants/opponents.h
 		--https://github.com/pret/pokefirered/blob/master/data/maps/ViridianForest/scripts.inc
 		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
-			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 102)/8] = 0xC0,--RICK and DOUG
-			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 103)/8] = 0x1,-- SAMMY
-			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 531)/8] = 0x18 --ANTHONY and CHARLIE
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 102) / 8] = 0xC0,--RICK and DOUG
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 104) / 8] = 0x1,-- SAMMY
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 531) / 8] = 0x18, --ANTHONY and CHARLIE
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 329) / 8] = 0x0E  --route 22 rival all form
 		}
 
 		-- https://raw.githubusercontent.com/pret/pokefirered/symbols/pokeleafgreen_rev1.sym
@@ -605,9 +664,10 @@ function GameSettings.setGameAsLeafGreen(gameversion)
 		--https://github.com/pret/pokefirered/blob/master/include/constants/opponents.h
 		--https://github.com/pret/pokefirered/blob/master/data/maps/ViridianForest/scripts.inc
 		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
-			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 102)/8] = 0xC0,--RICK and DOUG
-			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 103)/8] = 0x1,-- SAMMY
-			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 531)/8] = 0x18 --ANTHONY and CHARLIE
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 102) / 8] = 0xC0,--RICK and DOUG
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 104) / 8] = 0x1,-- SAMMY
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 531) / 8] = 0x18, --ANTHONY and CHARLIE
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 329) / 8] = 0x0E  --route 22 rival all form
 		}
 
 		-- https://raw.githubusercontent.com/pret/pokefirered/symbols/pokeleafgreen.sym
