@@ -30,6 +30,7 @@ function Tracker.initializeBlankData()
 		hiddenPowers = { -- Track hidden power types for each of your own Pokemon [personality] = [type]
 			[0] = PokemonData.Types.NORMAL,
 		},
+		defeatedTrainer = false,
 	}
 end
 
@@ -361,4 +362,20 @@ end
 
 function Tracker.clearData()
 	Tracker.initializeBlankData()
+end
+
+function Tracker.defeatedTrainer()
+	local saveBloack1addr = Utils.getSaveBlock1Addr()
+	if GameSettings.firstTrainers == nil then
+		return false
+	end
+	for trainersOffset,trainersBits in pairs(GameSettings.firstTrainers) do
+		local trainerState = Memory.readbyte(saveBloack1addr + trainersOffset)
+		if bit.band(trainerState,trainersBits) ~= 0 then --means some trainer was defeated
+			Tracker.Data.defeatedTrainer = true
+			return true
+		end
+	end
+	return false
+
 end

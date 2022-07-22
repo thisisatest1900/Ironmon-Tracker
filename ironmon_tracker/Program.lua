@@ -502,6 +502,11 @@ function Program.updatePCHealsFromMemory()
 	if combinedHeals ~= Tracker.Data.gameStatsHeals then
 		-- Update the local tally if there is a new heal
 		Tracker.Data.gameStatsHeals = combinedHeals
+
+		-- example how to use it replace  the if below with (without clicking box it would auto track as survival rule set)
+		--if Options["Track PC Heals"] and (TrackerScreen.buttons.PCHealAutoTracking.toggleState 
+		--									or Tracker.Data.defeatedTrainer or Tracker.defeatedTrainer())then
+
 		-- Only change the displayed PC Heals count when the option is on and auto-tracking is enabled
 		if Options["Track PC Heals"] and TrackerScreen.buttons.PCHealAutoTracking.toggleState then
 			if Options["PC heals count downward"] then
