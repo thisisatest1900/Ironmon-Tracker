@@ -29,6 +29,9 @@ GameSettings = {
 	gameStatsOffset = 0x0,
 	EncryptionKeyOffset = 0x00, -- Doesn't exist in Ruby/Sapphire
 	badgeOffset = 0x0,
+	gSaveBlock1FlagsOffset = 0x0,
+	flagsTrainerOffset = 0x0,
+	firstTrainers = nil,
 	bagPocket_Items_offset = 0x0,
 	bagPocket_Berries_offset = 0x0,
 	bagPocket_Items_Size = 0,
@@ -366,6 +369,8 @@ function GameSettings.setGameAsFireRed(gameversion)
 
 		GameSettings.gSaveBlock1 = 0x0202552c
 		GameSettings.gSaveBlock1ptr = 0x03005008
+		GameSettings.gSaveBlock1FlagsOffset = 0xEE0
+		GameSettings.flagsTrainerOffset = 0x500
 		GameSettings.gSaveBlock2ptr = 0x0300500c
 		GameSettings.gameStatsOffset = 0x1200
 		GameSettings.EncryptionKeyOffset = 0xF20
@@ -374,6 +379,14 @@ function GameSettings.setGameAsFireRed(gameversion)
 		GameSettings.bagPocket_Berries_offset = 0x54c
 		GameSettings.bagPocket_Items_Size = 42
 		GameSettings.bagPocket_Berries_Size = 43
+		--to figure out trainer used 
+		--https://github.com/pret/pokefirered/blob/master/include/constants/opponents.h
+		--https://github.com/pret/pokefirered/blob/master/data/maps/ViridianForest/scripts.inc
+		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 102)/8] = 0xC0,--RICK and DOUG
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 103)/8] = 0x1,-- SAMMY
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 531)/8] = 0x18 --ANTHONY and CHARLIE
+		}
 
 		-- https://raw.githubusercontent.com/pret/pokefirered/symbols/pokefirered_rev1.sym
 		GameSettings.ABILITIES = {
@@ -438,6 +451,8 @@ function GameSettings.setGameAsFireRed(gameversion)
 
 		GameSettings.gSaveBlock1 = 0x0202552c
 		GameSettings.gSaveBlock1ptr = 0x03005008
+		GameSettings.gSaveBlock1FlagsOffset = 0xEE0
+		GameSettings.flagsTrainerOffset = 0x500
 		GameSettings.gSaveBlock2ptr = 0x0300500c
 		GameSettings.gameStatsOffset = 0x1200
 		GameSettings.EncryptionKeyOffset = 0xF20
@@ -446,6 +461,14 @@ function GameSettings.setGameAsFireRed(gameversion)
 		GameSettings.bagPocket_Berries_offset = 0x54c
 		GameSettings.bagPocket_Items_Size = 42
 		GameSettings.bagPocket_Berries_Size = 43
+		--to figure out trainer used 
+		--https://github.com/pret/pokefirered/blob/master/include/constants/opponents.h
+		--https://github.com/pret/pokefirered/blob/master/data/maps/ViridianForest/scripts.inc
+		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 102)/8] = 0xC0,--RICK and DOUG
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 103)/8] = 0x1,-- SAMMY
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 531)/8] = 0x18 --ANTHONY and CHARLIE
+		}
 
 		-- https://raw.githubusercontent.com/pret/pokefirered/symbols/pokefirered.sym
 		GameSettings.ABILITIES = {
@@ -500,6 +523,8 @@ function GameSettings.setGameAsLeafGreen(gameversion)
 
 		GameSettings.gSaveBlock1 = 0x0202552c
 		GameSettings.gSaveBlock1ptr = 0x03005008
+		GameSettings.gSaveBlock1FlagsOffset = 0xEE0
+		GameSettings.flagsTrainerOffset = 0x500
 		GameSettings.gSaveBlock2ptr = 0x0300500c
 		GameSettings.gameStatsOffset = 0x1200
 		GameSettings.EncryptionKeyOffset = 0xF20
@@ -508,6 +533,14 @@ function GameSettings.setGameAsLeafGreen(gameversion)
 		GameSettings.bagPocket_Berries_offset = 0x54c
 		GameSettings.bagPocket_Items_Size = 42
 		GameSettings.bagPocket_Berries_Size = 43
+		--to figure out trainer used 
+		--https://github.com/pret/pokefirered/blob/master/include/constants/opponents.h
+		--https://github.com/pret/pokefirered/blob/master/data/maps/ViridianForest/scripts.inc
+		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 102)/8] = 0xC0,--RICK and DOUG
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 103)/8] = 0x1,-- SAMMY
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 531)/8] = 0x18 --ANTHONY and CHARLIE
+		}
 
 		-- https://raw.githubusercontent.com/pret/pokefirered/symbols/pokeleafgreen_rev1.sym
 		GameSettings.ABILITIES = {
@@ -558,6 +591,8 @@ function GameSettings.setGameAsLeafGreen(gameversion)
 
 		GameSettings.gSaveBlock1 = 0x0202552c
 		GameSettings.gSaveBlock1ptr = 0x03005008
+		GameSettings.gSaveBlock1FlagsOffset = 0xEE0
+		GameSettings.flagsTrainerOffset = 0x500
 		GameSettings.gSaveBlock2ptr = 0x0300500c
 		GameSettings.gameStatsOffset = 0x1200
 		GameSettings.EncryptionKeyOffset = 0xF20
@@ -566,6 +601,14 @@ function GameSettings.setGameAsLeafGreen(gameversion)
 		GameSettings.bagPocket_Berries_offset = 0x54c
 		GameSettings.bagPocket_Items_Size = 42
 		GameSettings.bagPocket_Berries_Size = 43
+		--to figure out trainer used 
+		--https://github.com/pret/pokefirered/blob/master/include/constants/opponents.h
+		--https://github.com/pret/pokefirered/blob/master/data/maps/ViridianForest/scripts.inc
+		GameSettings.firstTrainers = { -- key is the offeset trainer flag to check value bit is 1 if we care about the trainer
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 102)/8] = 0xC0,--RICK and DOUG
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 103)/8] = 0x1,-- SAMMY
+			[GameSettings.gSaveBlock1FlagsOffset + (GameSettings.flagsTrainerOffset + 531)/8] = 0x18 --ANTHONY and CHARLIE
+		}
 
 		-- https://raw.githubusercontent.com/pret/pokefirered/symbols/pokeleafgreen.sym
 		GameSettings.ABILITIES = {
