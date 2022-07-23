@@ -31,6 +31,7 @@ function Tracker.initializeBlankData()
 			[0] = PokemonData.Types.NORMAL,
 		},
 		defeatedTrainer = false,
+		hasEightBadges = false,
 	}
 end
 

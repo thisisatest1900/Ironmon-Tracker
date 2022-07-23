@@ -534,12 +534,27 @@ function Program.updateBadgesObtainedFromMemory()
 	end
 
 	if badgeBits ~= nil then
+		local badgeCounter = 0
 		for index = 1, 8, 1 do
 			local badgeName = "badge" .. index
 			local badgeButton = TrackerScreen.buttons[badgeName]
 			local badgeState = Utils.getbits(badgeBits, index - 1, 1)
 			badgeButton:updateState(badgeState)
+			if badgeState == 1 then badgeCounter = badgeCounter + 1 end
 		end
+		--should add check only do it if auto pc tracking enabled this is why its in comments right now 
+		-- if badgeCounter == 8 and Tracker.Data.hasEightBadges == false then 
+		-- 	Tracker.Data.hasEightBadges = true
+		-- 	if Options["PC heals count downward"] then
+		-- 		-- Automatically count down
+		-- 		Tracker.Data.centerHeals = Tracker.Data.centerHeals + 1
+		-- 		if Tracker.Data.centerHeals > 99 then Tracker.Data.centerHeals = 99 end
+		-- 	else
+		-- 		-- Automatically count up
+		-- 		Tracker.Data.centerHeals = Tracker.Data.centerHeals - 1
+		-- 		if Tracker.Data.centerHeals < 0 then Tracker.Data.centerHeals = 0 end
+		-- 	end
+		-- end
 	end
 end
 
